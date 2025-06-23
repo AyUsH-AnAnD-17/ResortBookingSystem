@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-green text-white">
+  <a class="navbar-brand" href="#">Online Resort Booking Portal</a>
+
+  <ul class="navbar-nav ml-auto">
+    <li id="name_role"><b>Hi!</b>  {{username}}/ Customer</li>
+    <li class="nav-item"><a class="nav-link" routerLink="/Chome">Home</a></li>
+    <li class="nav-item"><a class="nav-link" routerLink="/Cresorts">Resorts</a></li>
+    <li class="nav-item"><a class="nav-link" routerLink="/Cbookings">Bookings</a></li>
+
+
+    <li class="nav-item" style="margin-top: 8px;">
+      <div class="nav-item dropdown">
+        <a class="dropbtn">Reviews</a>
+        <div class="dropdown-content">
+          <a routerLink="/Caddreview">Add Review</a>
+          <a routerLink="/Cviewreview">View Review</a>
+        </div>
+      </div>
+    </li>
+    <li class="nav-item2"><a class="nav-link" style="cursor: pointer;" (click)="confirmlLogout()">Logout</a></li>
+  </ul>
+</nav>
+
+   <!-- popup when clicked on delete button -->
+   <div *ngIf="showConfirmDialog" class="confirm-wrapper">
+    <div class="confirm-dialog">
+      <!-- <h1>Confirm</h1> -->
+      <h5>Are you sure you want to logout?</h5><br>
+      <button (click)="cancelLogout()" class= "btn btn-danger">Cancel</button> &nbsp;&nbsp;
+      <li class="nav-item2"><a class="nav-link" (click)="confirmlLogout()">Logout</a></li>
+    </div>
+</div>
+
+<div *ngIf="showConfirmDialog" class="confirm-wrapper">
+  <div class="confirm-dialog">
+    <!-- <h1>Confirm</h1> -->
+    <h5>Are you sure you want to logout?</h5><br>
+    <button (click)="cancelLogout()" class= "btn btn-danger">Cancel</button> &nbsp;&nbsp;
+    <button (click)="logout()" class="btn btn-secondary"  routerLink="/login">Yes, Logout</button>
+  </div>

@@ -1,0 +1,77 @@
+<div>
+  <app-nav-bar></app-nav-bar>
+</div>
+
+<div class="container1">
+  <h2 style="text-align: center;"><b>Resorts</b></h2><br>
+  <table class="table table-hover " style="width: 100%;" >
+    <thead class="headline1">
+      <tr>
+        <th style="width:3%">Sr.No</th>
+        <th style="width:13%">Resort Name</th>
+        <th style="width:24%">Resort Description</th>
+        <th style="width:12%">Resort Image</th>
+        <th style="width:12%">Resort Availability Status</th>
+        <th style="width:10%">Resort Location</th>
+        <th style="width:5%">Capacity</th>
+        <th style="width:8%">Price</th>
+        <th style="width:13%">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let resort of resorts; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td *ngIf="!resort.isEditing">{{ resort.resortName }}</td>
+        <td *ngIf="!resort.isEditing">{{ resort.description }}</td>
+
+        <td *ngIf="!resort.isEditing">
+          <img [src]="resort.resortImageUrl" alt="Resort Image" class="resort_image">
+        </td>
+
+
+        <td *ngIf="!resort.isEditing">{{ resort.resortAvailableStatus }}</td>
+        <td *ngIf="!resort.isEditing">{{ resort.resortLocation }}</td>
+        <td *ngIf="!resort.isEditing" class="number-type">{{ resort.capacity }}</td>
+        <td *ngIf="!resort.isEditing" class="number-type">{{ formatPrice(resort.price) }} INR</td>
+
+        <!-- Editable fields -->
+        <ng-container *ngIf="resort.isEditing">
+          <td>
+            <input [(ngModel)]="resort.resortName" type="text" />
+            <!-- <div *ngIf="resortForm.controls.resortName.errors?.required && resortForm.controls.resortName.touched"
+              class="text-danger">
+              Resort name is required
+            </div> -->
+          </td>
+
+          
+          <td><textarea type="text" class="textbox_edit" [(ngModel)]="resort.description"></textarea></td>
+          
+          <td>
+            <input type="file" (change)="onFileChanged($event, resort)" style=" width:120px;" />
+            <img [src]="resort.base64String" alt="Resort Image" style="max-width: 180px; max-height: 130px;" *ngIf="resort.base64String">
+          </td>
+          <!-- <td><input [(ngModel)]="resort.resortAvailableStatus" /></td> -->
+          <td>
+            <select [(ngModel)]="resort.resortAvailableStatus" required>
+            <option value="">Select availability</option>
+            <option value="Available">Available</option>
+            <option value="Unavailable">Unavailable</option>
+          </select></td>
+        
+          
+          <td><input [(ngModel)]="resort.resortLocation" /></td>
+          <td><input [(ngModel)]="resort.capacity" type="number" /></td>
+          <td><input [(ngModel)]="resort.price" type="number"    style=" width:80px;"/></td>
+        </ng-container>
+        
+        <td style="text-align: center;">
+          <button *ngIf="!resort.isEditing" (click)="editResort(resort)"  class="btn btn-primary"> Edit </button>
+          <button *ngIf="resort.isEditing" (click)="saveResort(resort,resort.resortId)"  class="btn btn-success">Save</button>&nbsp;&nbsp;
+          <button *ngIf="resort.isEditing" (click)="cancelEdit(resort)" class="btn btn-warning">Cancel</button>
+          <button *ngIf="!resort.isEditing" (click)="confirmDelete(resort.resortId)" class="btn btn-danger">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

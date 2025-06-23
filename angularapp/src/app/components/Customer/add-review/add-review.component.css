@@ -1,0 +1,35 @@
+.container {
+    width:550px; /* Adjust width as needed */
+    position: relative;
+    margin-bottom: 10%;
+    transform: translate(0%, 15%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 30px rgba(34, 33, 32, 0.255);
+  }
+  
+  button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    /* background-color: #007bff; */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* button:hover {
+    background-color: #01a001;
+  } */
+  
+  .error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+  }
+  
+  .required {
+    color: red;
+  }

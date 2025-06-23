@@ -1,0 +1,44 @@
+.container1
+{
+  position: relative;
+  padding: 3% 5% 0 5%; 
+}
+
+ 
+.nav-link:hover {
+  color: rgb(1, 43, 9) !important; /* Change to your desired color */
+}
+
+ 
+  .form-group {
+    margin-bottom: 20px;
+  }
+ 
+  .headline{
+    height: 60px;
+  }
+  .headline1{
+    background-color: rgb(190, 231, 198);
+  }
+ 
+  table {
+    border-collapse: collapse;
+    width: 100% !important;
+    border: 1px solid #000000;
+  }
+  table thead tr th {
+    border-bottom: 3px solid #000000;
+  }
+   
+  th{
+    border: 1px solid #000000;
+    text-align: center;
+    padding: 6px 0 6px 0;
+  
+  }
+  td {
+    border: 1px solid #d9d9d9;
+    text-align: left;
+    overflow:auto ; /* Enable scrolling */
+    vertical-align: middle;
+  }

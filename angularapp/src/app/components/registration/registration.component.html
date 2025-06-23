@@ -1,0 +1,96 @@
+
+<div id="test">
+  <nav class="navbar navbar-expand-lg navbar-light bg-green text-white">
+      <a class="navbar-brand" href="#">Online Resort Booking Portal</a>
+   
+      <ul class="navbar-nav ml-auto">
+        <!-- Login Link -->
+        <li class="nav-item">
+          <!-- <a class="nav-link" routerLink="/login" >Login</a> -->
+          <a><button class="btn btn-light enlarge-button" routerLink="/login">Login</button></a>
+
+        </li>
+   
+        <!-- Register Link -->
+        <li class="nav-item">
+          <!-- <a class="nav-link" routerLink="/register">Register</a> -->
+          <button class="btn btn-primary" routerLink="/register">Register</button>
+
+        </li>
+      </ul>
+    </nav>
+ 
+  <!-- body -->
+    <div class="container">
+      <h2 style="text-align: center">Registration</h2>
+      <form [formGroup]="registrationForm" (ngSubmit)="onRegister()">
+       
+        <div class="form-group">
+          <label for="username">Username<span style="color: red;">*</span></label>
+          <input type="text" formControlName="username" id="username" class="form-control" />
+          <div *ngIf="f.username.touched && f.username.errors" class="error-message">
+            <span *ngIf="f.username.errors.required">Username is required</span>
+            <span *ngIf="f.username.errors.minlength">Username must be at least 3 characters long</span>
+          </div>
+        </div>
+     
+        <div class="form-group">
+          <label for="email">Email<span style="color: red;">*</span></label>
+          <input type="email" formControlName="email" id="email" class="form-control" />
+          <div *ngIf="f.email.touched && f.email.errors" class="error-message">
+            <span *ngIf="f.email.errors.required">Email is required</span>
+          <span *ngIf="f.email.errors.pattern ||f.email.errors.email">Please enter a valid email</span>
+          </div>
+        </div>
+     
+        <div class="form-group">
+          <label for="password">Password<span style="color: red;">*</span></label>
+          <input type="password" formControlName="password" id="password" class="form-control" />
+          <div *ngIf="f.password.touched && f.password.errors" class="error-message">
+            <span *ngIf="f.password.errors.required">Password is required</span>
+            <!-- <span *ngIf="f.password.errors.minlength">Password must be at least 6 characters long</span> -->
+            <span *ngIf="f.password.errors.pattern">Required at least 6 character and must include at least one uppercase letter, one lowercase letter, one digit, and one special character</span>
+
+          </div>
+        </div>
+     
+        <div class="form-group">
+          <label for="confirmPassword">Confirm Password<span style="color: red;">*</span></label>
+          <input type="password" formControlName="confirmPassword" id="confirmPassword" class="form-control" />
+          <div *ngIf="f.confirmPassword.touched && f.confirmPassword.errors" class="error-message">
+            <span *ngIf="f.confirmPassword.errors.required">Confirm Password is required</span>
+            <span *ngIf="f.confirmPassword.errors.passwordMismatch">Passwords must match</span>
+          </div>
+        </div>
+     
+        <div class="form-group">
+          <label for="mobileNumber">Mobile Number<span style="color: red;">*</span></label>
+          <input type="text" formControlName="mobileNumber" id="mobileNumber" class="form-control" />
+          <div *ngIf="f.mobileNumber.touched && f.mobileNumber.errors" class="error-message">
+            <span *ngIf="f.mobileNumber.errors.required">Mobile number is required</span>
+            <span *ngIf="f.mobileNumber.errors.pattern">Please enter a valid mobile number</span>
+          </div>
+        </div>
+     
+        <div class="form-group">
+          <label for="userRole">Role<span style="color: red;">*</span></label>
+        <!-- <input type="text" formControlName="userRole" id="userRole" class="form-control" /> -->
+
+
+        <select type="text" formControlName="userRole" id="userRole" class="form-control">
+          <option  value="">Select a role</option>
+          <option  value="Admin">Admin</option>
+          <option  value="Customer">Customer</option>
+        </select>
+          <div *ngIf="f.userRole.touched && f.userRole.errors" class="error-message">
+            <span *ngIf="f.userRole.errors.required">Role is required</span>
+          </div>
+        </div>
+       
+       
+        <button type="submit" class="btn btn-primary" [disabled]="!registrationForm.valid">Register</button>
+      </form>
+      <div>
+        <p style="margin-top: 8px;">If you have account, please <a routerLink="/login">Login</a> here.</p>
+      </div>
+    </div>

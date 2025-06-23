@@ -1,0 +1,6 @@
+dotnetapp/bin/
+dotnetapp/obj/
+dotnetapp/appsettings.json
+
+angularapp/dist/
+angularapp/src/enviroments/

@@ -1,0 +1,87 @@
+<div>
+  <app-nav-bar></app-nav-bar>
+</div>
+
+<div class="container">
+  <h2 style="text-align: center;">Add New Resort</h2>
+  <br>
+  <form [formGroup]="resortForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="resortName" class="form-label">Resort Name<span style="color: red;">*</span></label>
+      <input type="text" class="form-control" id="resortName" formControlName="resortName" required>
+      <div *ngIf="resortForm.controls.resortName.errors?.required && resortForm.controls.resortName.touched"
+        class="text-danger">
+        Resort name is required
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="resortImageUrl" class="form-label">Resort Image<span style="color: red;">*</span></label>
+      <input type="file" class="form-control" id="resortImageUrl" formControlName="resortImageUrl"
+        (change)="onFileChanged($event)" required>
+      <div *ngIf="resortForm.controls.resortImageUrl.errors?.required && resortForm.controls.resortImageUrl.touched"
+        class="text-danger">
+        Resort image is required
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="resortLocation" class="form-label">Resort Location<span style="color: red;">*</span></label>
+      <input type="text" class="form-control" id="resortLocation" formControlName="resortLocation" required>
+      <div *ngIf="resortForm.controls.resortLocation.errors?.required && resortForm.controls.resortLocation.touched"
+        class="text-danger">
+        Resort location is required
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="description" class="form-label">Resort Description<span style="color: red;">*</span></label>
+      <textarea type="text" class="form-control" id="description" formControlName="description" required></textarea>
+      <div *ngIf="resortForm.controls.description.errors?.required && resortForm.controls.description.touched"
+        class="text-danger">
+        Resort description is required
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="resortAvailableStatus" class="form-label">Resort Available Status<span
+          style="color: red;">*</span></label>
+      <select type="text" class="form-select" id="resortAvailableStatus" formControlName="resortAvailableStatus"
+        required>
+        <option value="">Select availability</option>
+        <option value="Available">Available</option>
+        <option value="Unavailable">Unavailable</option>
+
+        <!-- add other options here -->
+      </select>
+      <div
+        *ngIf="resortForm.controls.resortAvailableStatus.errors?.required && resortForm.controls.resortAvailableStatus.touched"
+        class="text-danger">
+        Resort available status is required
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="price" class="form-label">Price<span style="color: red;">*</span></label>
+      <input type="number" class="form-control" id="price" formControlName="price" required>
+      <div *ngIf="resortForm.controls.price.errors?.required && resortForm.controls.price.touched" class="text-danger">
+        Price is required
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="capacity" class="form-label">Capacity<span style="color: red;">*</span></label>
+      <input type="number" class="form-control" id="capacity" formControlName="capacity" required>
+      <div *ngIf="resortForm.controls.capacity.errors?.required && resortForm.controls.capacity.touched"
+        class="text-danger">
+        Capacity is required
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <button type="submit" class="btn btn-success" [disabled]="resortForm.invalid">Add Resort</button>
+      <!-- <div *ngIf="!resortForm.invalid" class="btn_valid"></div> -->
+
+    </div>
+  </form>
+</div>

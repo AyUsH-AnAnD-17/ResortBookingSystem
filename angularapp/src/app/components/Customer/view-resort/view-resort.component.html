@@ -1,0 +1,45 @@
+<div>
+    <app-nav-bar2></app-nav-bar2>
+</div>
+
+<div class="container1">
+    <h2 style="text-align: center;"><b>Resorts</b></h2><br>
+    <table class="table table-hover" style="width: 100%;" >
+        
+        <thead class="headline1">
+            <tr>
+                <th style="width:3%">Sr.No</th>
+                <th style="width:13%">Resort Name</th>
+                <th style="width:24%">Resort Description</th>
+                <th style="width:12%">Resort Image</th>
+                <th style="width:12%">Resort Availability Status</th>
+                <th style="width:11%">Resort Location</th>
+                <th style="width:5%">Capacity</th>
+                <th style="width:8%">Price</th>
+                <th style="width:12%">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let resort of resorts; let i=index">
+                <td>{{ i+1 }}</td>
+                <td>{{ resort.resortName }}</td>
+                <td>{{ resort.description }} </td>
+                <td >
+                    <img [src]="resort.resortImageUrl" alt="Resort Image" class="resort_image">
+                </td>
+                <td [ngClass]="{'available':resort.resortAvailableStatus==='Available', 'unavailable':resort.resortAvailableStatus==='Unavailable'}">
+                {{ resort.resortAvailableStatus }}
+                </td>
+                <td>{{ resort.resortLocation }}</td>
+                <td class="number-type">{{ resort.capacity}} </td>
+                <td class="number-type">{{ formatPrice(resort.price) }} INR</td>
+                <td style="text-align: center;">
+                    <!-- <button type="button" class="btn btn-primary" id="Add" routerLink="/Caddbooking">Add Booking</button>&nbsp; -->
+                    <button type="button" class="btn btn-primary" id="Add" [routerLink]="['/Caddbooking',resort.resortId]"
+                    [disabled]="resort.resortAvailableStatus==='Unavailable'">Add Booking</button>&nbsp;
+
+                </td>
+            </tr>
+        </tbody>
+</table>
+</div>

@@ -1,0 +1,105 @@
+.bg-green {
+    background-color: rgb(2, 177, 2) !important;
+  }
+
+.text-white {
+    color: white !important;
+  }
+  .navbar {
+    position: fixed;
+    height: 55px; /* Adjust the height as needed */
+    width: 100%;
+  z-index: 1000
+  }
+
+.navbar-brand{
+  font-size: 20px;
+  color: white;
+}
+
+.nav-link{
+  color: white  !important;
+}
+.nav-item
+{
+  margin-right: 20px;
+  font-size: 20px;
+}
+
+.nav-link:hover {
+  color: rgb(1, 43, 9) !important; 
+}
+
+
+.container {
+  width:550px; /* Adjust width as needed */
+  position: relative;
+  
+  transform: translate(0%, 15%);
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 20px rgba(16, 15, 15, 0.991);
+}
+
+
+.form-group {
+  margin-bottom: 10px;
+}
+.form-group label {
+  display: block;
+  margin-bottom: 2px;
+  font-weight: bold;
+}
+.form-group input
+ {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+button[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  /* background-color: #007bff; */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+/* button[type="submit"]:hover {
+  background-color: #090fb5;
+} */
+
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.required {
+  color: red;
+}
+
+
+select 
+{
+    width: 100%; /* Make the select element fill the entire width of its container */
+    padding: 8px; /* Add padding to provide spacing between the border and the content */
+    border: 1px solid #ccc; /* Add a border with a light gray color */
+    border-radius: 4px; /* Add border radius for rounded corners */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+ode.enlarge-button { 
+  padding: 10px 20px; 
+  font-size: 16px; 
+  transition: transform 0.3s ease; 
+} 
+ 
+.enlarge-button:hover { 
+  transform: scale(1.1); 
+} 

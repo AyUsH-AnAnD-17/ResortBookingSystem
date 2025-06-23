@@ -1,0 +1,31 @@
+
+<div>
+    <app-nav-bar2></app-nav-bar2>
+</div>
+
+<div class="container">
+    <div class="resortDetails-container">
+
+        <h2 class="headline"> Reviews </h2>
+        <table class="table table-hover">
+            <thead class="headline1">
+                <th>S.No</th>
+                <th>Resort Name</th>
+                <th>Feedback Comments</th>
+                <th>Ratings (out of 5)</th>
+                <th>Date Created</th>
+            </thead>
+            <tbody>
+                <tr class="headline2" *ngFor="let review of reviews; let i=index">
+                    <td>{{ i+1 }}</td>
+                    <td>{{ review.subject }}</td>
+                    <td>{{ review.body }}</td>
+                    <td>{{ review.rating }}</td>
+                    <td>{{ review.dateCreated | date: 'yyyy-MM-dd'}}</td>
+                </tr>
+        </tbody>
+        </table>
+    </div>
+</div>
+
+

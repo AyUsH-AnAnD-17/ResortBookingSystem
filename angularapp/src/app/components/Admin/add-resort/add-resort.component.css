@@ -1,0 +1,84 @@
+.container
+{
+    width:550px; /* Adjust width as needed */
+    position: relative;
+    
+    transform: translate(0%, 5%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.bg-green {
+    background-color: rgb(2, 177, 2) !important;
+  }
+ 
+.text-white {
+    color: white !important;
+  }
+  .navbar {
+    height: 70px; /* Adjust the height as needed */
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+ 
+.navbar-brand{
+  font-size: 20px;
+  color: white;
+}
+ 
+.nav-link{
+  color: white  !important;
+}
+ 
+.nav-link:hover {
+  color: rgb(1, 43, 9) !important; /* Change to your desired color */
+}
+ 
+ 
+  .form-group {
+    margin-bottom: 20px;
+  }
+  .mb-3 label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  .form-group input[type="text"],
+  .form-group input[type="file"],
+  .form-group input[type="number"]
+  { width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+ 
+  .mb-3 button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color:  rgb(19, 153, 53);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    /* cursor: pointer; */
+    transition: background-color 0.3s ease;
+  }
+  .btn_valid:hover {
+    background-color:  rgb(8, 149, 29);
+  }
+  .btn_valid{
+    background-color:  rgb(26, 72, 33);
+
+  }
+
+
+select 
+{
+    width: 100%; /* Make the select element fill the entire width of its container */
+    padding: 8px; /* Add padding to provide spacing between the border and the content */
+    border: 1px solid #ccc; /* Add a border with a light gray color */
+    border-radius: 4px; /* Add border radius for rounded corners */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}

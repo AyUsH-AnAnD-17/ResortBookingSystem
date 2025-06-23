@@ -1,0 +1,57 @@
+<div>
+    <app-nav-bar2></app-nav-bar2>
+</div>
+
+<div class="container1">
+    <div class="resortDetails-container">
+ 
+        <h2 class="headline"> Bookings </h2>
+        <table class="table table-hover" style="width: 100%;">
+            <thead class="headline1">
+                <tr>
+                <th>Sr.No</th>
+                <th>Resort Name</th>
+                <th>Number of Persons</th>
+                <th>From Date</th>
+                <th>To Date</th>
+                <th>Price</th>
+                <th>Address</th>
+                <th>Status</th>
+                <th>Actions</th>
+                <tr>
+            </thead>
+            <tbody>
+                <tr class="headline2" *ngFor="let booking of bookings; let i=index" >
+                    <td style="text-align: center;">{{i+1}}</td>
+                    <td>{{ booking.resort.resortName }}</td>
+                    <td style="text-align: center;">{{ booking.noOfPersons }}</td>
+                    <td>{{ booking.fromDate| date: 'yyyy-MM-dd' }}</td>
+                    <td>{{ booking.toDate | date: 'yyyy-MM-dd'}}</td>
+                    <td class="number-type">{{ formatPrice(booking.totalPrice) }} INR</td>
+                    <td>{{booking.address}}</td>
+                    <td>{{ booking.status }}</td>
+                    <td style="text-align: center;">
+                        <!-- <button type="button" class="btn btn-danger" (click)="confirmDelete()" id="delete">Delete</button> -->
+                        <!-- <button type="button" class="btn btn-danger" (click)="deleteItem(booking.bookingId)" id="delete">Delete</button> -->
+                        <button type="button" class="btn btn-danger"  (click)="confirmDelete(booking)" id="delete"  >Delete</button>
+                        <!-- <button type="button" class="btn btn-danger"  (click)="confirmDelete(booking)" id="delete"  [disabled]="booking.status==='Accepted'" >Delete</button> -->
+                    </td>
+
+                    <!-- <td>
+                        <button type="button" class="btn btn-danger" (click)="confirmDelete()" id="delete">Delete</button>
+
+                        <div *ngIf="showConfirmDialog" class="confirm-wrapper">
+                            <div class="confirm-dialog">
+                              <h5>Are you sure you want to delete?</h5><br>
+                              <button (click)="cancelDelete()" class= "btn btn-danger">Cancel</button> &nbsp;&nbsp;
+                              <button (click)="deleteItem()" class="btn btn-secondary">Yes, Delete</button>
+                            </div>
+                        </div>
+                    </td> -->
+
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

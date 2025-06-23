@@ -1,0 +1,107 @@
+<div>
+    <app-nav-bar2></app-nav-bar2>
+</div>
+
+<div class="container">
+    <h2 style="text-align: center">Add Booking Details</h2>
+    
+    <form  [formGroup]="bookingForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="resortName">Resort Name:</label>
+            <input type="text" id="resortName" name="resortName"  value={{resort.resortName}} formControlName="resortName" disabled>
+
+        </div>
+ 
+        <div class="form-group">
+            <label for="totalPrice">Total Price:</label>
+            <input type="text" id="totalPrice"  value= {{newTotalPrice}} formControlName="totalPrice" disabled>
+
+        </div>
+
+        <div class="form-group">
+            <label for="resortLocation">Resort Location:</label>
+            <input type="text" id="resortLocation" formControlName="resortLocation">
+
+        </div>
+
+        <div class="form-group">
+            <label for="resortCapacity">Resort Capacity:</label>
+            <input type="text" id="resortCapacity" formControlName="resortCapacity">
+
+        </div>
+        
+        <div class="form-group">
+            <label for="availableCapacity">Available Capacity:</label>
+            <input type="text" id="availableCapacity"  formControlName="availableCapacity" readonly>
+
+        </div>
+
+        <div class="form-group">
+            <label for="yourAddress">Your Address:<span style="color: red;">*</span></label>
+            <textarea  class="textbox_edit" type="text" id="yourAddress" formControlName="yourAddress"></textarea>
+            <div class="error-message" *ngIf="bookingForm.get('yourAddress').touched && bookingForm.get('yourAddress').errors?.required">
+                Your Address is required.
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="numberOfPersons">Number of Persons:<span style="color: red;">*</span></label>
+            <input type="number" id="numberOfPersons" formControlName="numberOfPersons">
+            <div class="error-message"
+                *ngIf="bookingForm.get('numberOfPersons').touched && bookingForm.get('numberOfPersons').errors?.required">
+                Number of persons is required.
+            </div>
+            <div class="error-message"
+                *ngIf="bookingForm.get('numberOfPersons').touched && bookingForm.get('numberOfPersons').errors?.min">
+                At least one person is required.
+            </div>
+
+            <div class="error-message"
+                *ngIf="bookingForm.get('numberOfPersons').touched && bookingForm.get('numberOfPersons').errors?.max">
+                Number of Persons should always be less or equal to the Available capacity.
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="fromDate">From Date:<span style="color: red;">*</span></label>
+            <input type="date" id="fromDate" formControlName="fromDate" [min]="minFromDate">
+            <div class="error-message"
+                *ngIf="bookingForm.get('fromDate').touched && bookingForm.get('fromDate').errors?.required">
+                <!-- From date is required. -->
+            </div>
+
+            <div  class="error-message" *ngIf="bookingForm.get('fromDate').touched && bookingForm.get('fromDate').errors?.pastDate">
+                From date is required and can't select today's date.
+            </div>
+            <!-- <div class="error-message" *ngIf="bookingForm.get('fromDate').touched && bookingForm.get('fromDate').errors?.pastDate">From Date cannot be in the past</div> -->
+
+
+        </div>
+
+        <div class="form-group">
+            <label for="toDate">To Date:<span style="color: red;">*</span></label>
+            <input type="date" id="toDate" formControlName="toDate" [min]="minToDate">
+            <div class="error-message"
+                *ngIf="bookingForm.get('toDate').touched && bookingForm.get('toDate').errors?.required">
+                <!-- To date is required. -->
+            </div>
+
+            <div   class="error-message" *ngIf="bookingForm.get('toDate').touched && bookingForm.get('toDate').errors?.invalidToDate">
+                To date is required and can't select today's date.
+            </div>
+            <!-- <div *ngIf="bookingForm.get('toDate').errors?.invalidToDate">To Date must be after From Date</div> -->
+
+            
+        </div>
+
+        <div *ngIf="bookingForm.hasError('dateRangeInvalid')">
+            <div class="error-message">To Date must be greater than From Date.</div>
+        </div>
+        <div *ngIf="bookingForm.hasError('dateDifferenceInvalid')">
+            <div class="error-message">There must be at least 1 day difference between From Date and To Date.</div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" [disabled]="!bookingForm.valid">Book And Pay Now</button>
+            <button type="button" class="btn btn-danger" (click)="bookingForm.reset()" routerLink="/Cresorts">Cancel</button>
+    </form>
+</div>

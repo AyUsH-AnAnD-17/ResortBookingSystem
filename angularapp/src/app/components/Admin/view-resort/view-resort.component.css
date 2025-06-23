@@ -1,0 +1,63 @@
+.container1
+{
+  position: relative;
+  padding: 3% 3% 0 3%; 
+}
+
+.headline1{
+  background-color: rgb(208,208,208);
+}
+
+table {
+  border-collapse: collapse;
+  width: 100% !important;
+  border: 1px solid #000000;
+}
+table thead tr th {
+  border-bottom: 3px solid #000000;
+}
+ 
+th{
+  border: 1px solid #d9d9d9;
+  text-align: center;
+
+}
+table td {
+  border: 1px solid #d9d9d9;
+  text-align: left;
+  overflow:auto ; /* Enable scrolling */
+  vertical-align: middle;
+}
+
+
+/* .editable-input
+{
+  max-width: 10%;
+  box-sizing: border-box;
+} */
+
+input{
+  width: 100%;
+
+}
+
+
+.resort_image{
+  max-width:150px; 
+  max-height: 150px;  
+  object-fit:fill;
+  
+  border-radius: 10px;
+}
+
+.number-type
+{
+  text-align: right !important;
+}
+
+
+.textbox_edit{
+  width:280px;
+  height: 100px;
+  max-height: 120px;
+}

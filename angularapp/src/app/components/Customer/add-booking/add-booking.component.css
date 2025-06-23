@@ -1,0 +1,66 @@
+.container
+{ width:550px; /* Adjust width as needed */
+  position: relative;
+  transform: translate(0%, 5%);
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(16, 15, 15, 0.991);
+}
+ 
+
+.form-group {
+  margin-bottom: 10px;
+}
+.form-group label {
+  display: block;
+  margin-bottom: 2px;
+  font-weight: bold;
+}
+.form-group input
+ {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+button[type="submit"],
+button[type="button"] {
+  width: 100%;
+  padding: 10px;
+  /* background-color: #007bff; */
+  /* color: #fff; */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-top: 10px;
+}
+
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.required {
+  color: red;
+}
+
+select 
+{
+    width: 100%; /* Make the select element fill the entire width of its container */
+    padding: 8px; /* Add padding to provide spacing between the border and the content */
+    border: 1px solid #ccc; /* Add a border with a light gray color */
+    border-radius: 4px; /* Add border radius for rounded corners */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+
+.textbox_edit{
+  width:510px;
+  height: 60px;
+  max-height: 120px;
+}

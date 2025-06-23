@@ -1,0 +1,30 @@
+<div>
+    <app-nav-bar></app-nav-bar>
+</div>
+ 
+<div class="container1"> 
+        <h2 style="text-align: center;"> Reviews </h2><br>
+        <table style="width:100%">
+            <thead class="headline1">
+                <tr>
+                <th style="width:5%">Sr.No</th>
+                <th style="width:10%">User Name</th>
+                <th style="width:20%">Resort Name</th>
+                <th style="width:35%">Review</th>
+                <th style="width:13%">Ratings (out of 5)</th>
+                <th style="width:15%">Date Created</th>
+                </tr>
+            </thead>
+           
+            <tbody>
+                <tr class="headline2" *ngFor="let review of reviews;let i=index">
+                    <td>{{ i+1 }}</td>
+                    <td>{{ review.user.username }}</td>
+                    <td>{{ review.subject }}</td>
+                    <td>{{ review.body }}</td>
+                    <td style="text-align: center;">{{ review.rating }}</td>
+                    <td>{{ review.dateCreated  | date: 'yyyy-MM-dd'}}</td>
+                </tr>
+        </tbody>
+        </table>
+    </div>

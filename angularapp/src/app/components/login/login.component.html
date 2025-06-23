@@ -1,0 +1,50 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-green text-white">
+    <a class="navbar-brand" href="">Online Resort Booking Portal</a>
+  
+    <ul class="navbar-nav ml-auto">
+      <!-- Login Link -->
+      <li class="nav-item">
+        
+        <!-- <a class="nav-link" routerLink="/login" >Login</a> -->
+        <a><button class="btn btn-light" routerLink="/login">Login</button></a>
+
+        </li>
+  
+      <!-- Register Link -->
+      <li class="nav-item">
+        <!-- <a class="nav-link" routerLink="/register">Register</a> -->
+        <button class="btn btn-primary enlarge-button" routerLink="/register">Register</button>
+
+      </li>
+    </ul>
+</nav>
+
+
+<!-- body --><div class="container">
+  <h2 style="text-align: center">Login</h2>
+  <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+    <div class="form-group">
+      <label for="email">Email <span style="color: red;">*</span></label>
+      <input type="email" formControlName="email" id="email" class="form-control"/>
+
+      <div *ngIf="f.email.touched && f.email.errors" class="error-message">
+        <span *ngIf="f.email.errors.required">Email is required</span>
+        <span *ngIf="f.email.errors.email">Please enter a valid email</span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="password">Password <span style="color: red;">*</span> </label>
+      <input type="password" formControlName="password" id="password" class="form-control" />
+
+      <div *ngIf="f.password.touched && f.password.errors" class="error-message">
+        <span *ngIf="f.password.errors.required">Password is required</span>
+      </div>
+    </div>
+
+    <div *ngIf="error" class="error-message">{{ error }}</div>
+
+    <button type="submit" class="btn btn-success" [disabled]="!loginForm.valid">Login</button>
+  </form>
+  <p>Don't have an account? <a routerLink="/register">Register here</a></p>
+</div>
+
